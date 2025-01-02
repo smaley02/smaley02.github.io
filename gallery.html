@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio - Samuel Maley</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/resume.min.css" rel="stylesheet">
+
+    <style>
+        .gallery img {
+            width: 60%; /* Set image width to 60% of its original size */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 0px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery .col-md-3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .image-name {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .back-home-btn {
+            position: absolute;
+            text-align: center;
+            top: 350px;
+            left: 80px;
+            color:#868e96;
+            text-decoration: none;
+            font-family: 'Saira Extra Condensed', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Saira Extra Condensed', serif;
+        }
+        .back-home-btn:hover {
+            color: #a9b0b7;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+    
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a href="index.html" class="back-home-btn">Back Home</a>
+
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+            <span class="d-block d-lg-none"></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#PokeGAN">Gallery</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0 mt-5">
+        <h1 class="text-center mb-4"></h1>
+        <div class="gallery" id="gallery"></div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/resume.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const galleryContainer = document.getElementById('gallery');
+            
+            // Example list of image files (this should ideally be dynamic from server-side)
+            const images = [
+                "sample_0_1710000.png", 
+                "sample_1_1710000.png", "sample_2_1710000.png", "sample_3_1710000.png", "sample_4_1710000.png", "sample_5_1710000.png", 
+                "sample_6_1710000.png", "sample_7_1710000.png", "sample_8_1710000.png", "sample_9_1710000.png", "sample_10_1710000.png", 
+                "sample_11_1710000.png", "sample_12_1710000.png", "sample_13_1710000.png", "sample_14_1710000.png", "sample_15_1710000.png", 
+                "sample_16_1710000.png", "sample_17_1710000.png", "sample_18_1710000.png", "sample_19_1710000.png", "sample_20_1710000.png", 
+                "sample_21_1710000.png", "sample_22_1710000.png", "sample_23_1710000.png", "sample_24_1710000.png", "sample_25_1710000.png", 
+                "sample_26_1710000.png", "sample_27_1710000.png", "sample_28_1710000.png", "sample_29_1710000.png", "sample_30_1710000.png", 
+                "sample_31_1710000.png", "sample_32_1710000.png", "sample_33_1710000.png", "sample_34_1710000.png", "sample_35_1710000.png", 
+                "sample_36_1710000.png", "sample_37_1710000.png", "sample_38_1710000.png", "sample_39_1710000.png", "sample_40_1710000.png", 
+                "sample_41_1710000.png", "sample_42_1710000.png", "sample_43_1710000.png", "sample_44_1710000.png", "sample_45_1710000.png", 
+                "sample_46_1710000.png", "sample_47_1710000.png", "sample_48_1710000.png", "sample_49_1710000.png", "sample_50_1710000.png", 
+                "sample_51_1710000.png", "sample_52_1710000.png", "sample_53_1710000.png", "sample_54_1710000.png", "sample_55_1710000.png", 
+                "sample_56_1710000.png", "sample_57_1710000.png", "sample_58_1710000.png", "sample_59_1710000.png", "sample_60_1710000.png", 
+                "sample_61_1710000.png", "sample_62_1710000.png", "sample_63_1710000.png", "sample_64_1710000.png", "sample_65_1710000.png", 
+                "sample_66_1710000.png", "sample_67_1710000.png", "sample_68_1710000.png", "sample_69_1710000.png", "sample_70_1710000.png", 
+                "sample_71_1710000.png", "sample_72_1710000.png", "sample_73_1710000.png", "sample_74_1710000.png", "sample_75_1710000.png", 
+                "sample_76_1710000.png", "sample_77_1710000.png", "sample_78_1710000.png", "sample_79_1710000.png", "sample_80_1710000.png", 
+                "sample_81_1710000.png", "sample_82_1710000.png", "sample_83_1710000.png", "sample_84_1710000.png", "sample_85_1710000.png", 
+                "sample_86_1710000.png", "sample_87_1710000.png", "sample_88_1710000.png", "sample_89_1710000.png", "sample_90_1710000.png", 
+                "sample_91_1710000.png", "sample_92_1710000.png", "sample_93_1710000.png", "sample_94_1710000.png", "sample_95_1710000.png", 
+                "sample_96_1710000.png", "sample_97_1710000.png", "sample_98_1710000.png", "sample_99_1710000.png", "sample_100_1710000.png", 
+                "sample_101_1710000.png", "sample_102_1710000.png", "sample_103_1710000.png", "sample_104_1710000.png", "sample_105_1710000.png", 
+                "sample_106_1710000.png", "sample_107_1710000.png", "sample_108_1710000.png", "sample_109_1710000.png", "sample_110_1710000.png", 
+                "sample_111_1710000.png", "sample_112_1710000.png", "sample_113_1710000.png", "sample_114_1710000.png", "sample_115_1710000.png", 
+                "sample_116_1710000.png", "sample_117_1710000.png", "sample_118_1710000.png", "sample_119_1710000.png", "sample_120_1710000.png", 
+                "sample_121_1710000.png", "sample_122_1710000.png", "sample_123_1710000.png", "sample_124_1710000.png", "sample_125_1710000.png", 
+                "sample_126_1710000.png", "sample_127_1710000.png", "sample_128_1710000.png", "sample_129_1710000.png", "sample_130_1710000.png", 
+                "sample_131_1710000.png", "sample_132_1710000.png", "sample_133_1710000.png", "sample_134_1710000.png", "sample_135_1710000.png", 
+                "sample_136_1710000.png", "sample_137_1710000.png", "sample_138_1710000.png", "sample_139_1710000.png", "sample_140_1710000.png", 
+                "sample_141_1710000.png", "sample_142_1710000.png", "sample_143_1710000.png", "sample_144_1710000.png", "sample_145_1710000.png", 
+                "sample_146_1710000.png", "sample_147_1710000.png", "sample_148_1710000.png", "sample_149_1710000.png", "sample_150_1710000.png", 
+                "sample_151_1710000.png", "sample_152_1710000.png", "sample_153_1710000.png", "sample_154_1710000.png", "sample_155_1710000.png", 
+                "sample_156_1710000.png", "sample_157_1710000.png", "sample_158_1710000.png", "sample_159_1710000.png", "sample_160_1710000.png", 
+                "sample_161_1710000.png", "sample_162_1710000.png", "sample_163_1710000.png", "sample_164_1710000.png", "sample_165_1710000.png", 
+                "sample_166_1710000.png", "sample_167_1710000.png", "sample_168_1710000.png", "sample_169_1710000.png", "sample_170_1710000.png", 
+                "sample_171_1710000.png", "sample_172_1710000.png", "sample_173_1710000.png", "sample_174_1710000.png", "sample_175_1710000.png", 
+                "sample_176_1710000.png", "sample_177_1710000.png", "sample_178_1710000.png", "sample_179_1710000.png", "sample_180_1710000.png", 
+                "sample_181_1710000.png", "sample_182_1710000.png", "sample_183_1710000.png", "sample_184_1710000.png", "sample_185_1710000.png", 
+                "sample_186_1710000.png", "sample_187_1710000.png", "sample_188_1710000.png", "sample_189_1710000.png", "sample_190_1710000.png", 
+                "sample_191_1710000.png", "sample_192_1710000.png", "sample_193_1710000.png", "sample_194_1710000.png", "sample_195_1710000.png", 
+                "sample_196_1710000.png", "sample_197_1710000.png", "sample_198_1710000.png", "sample_199_1710000.png", "sample_200_1710000.png", 
+                "sample_201_1710000.png", "sample_202_1710000.png", "sample_203_1710000.png", "sample_204_1710000.png", "sample_205_1710000.png", 
+                "sample_206_1710000.png", "sample_207_1710000.png", "sample_208_1710000.png", "sample_209_1710000.png", "sample_210_1710000.png", 
+                "sample_211_1710000.png", "sample_212_1710000.png", "sample_213_1710000.png", "sample_214_1710000.png", "sample_215_1710000.png", 
+                "sample_216_1710000.png", "sample_217_1710000.png", "sample_218_1710000.png", "sample_219_1710000.png", "sample_220_1710000.png", 
+                "sample_221_1710000.png", "sample_222_1710000.png", "sample_223_1710000.png", "sample_224_1710000.png", "sample_225_1710000.png", 
+                "sample_226_1710000.png", "sample_227_1710000.png", "sample_228_1710000.png", "sample_229_1710000.png", "sample_230_1710000.png", 
+                "sample_231_1710000.png", "sample_232_1710000.png", "sample_233_1710000.png", "sample_234_1710000.png", "sample_235_1710000.png", 
+                "sample_236_1710000.png", "sample_237_1710000.png", "sample_238_1710000.png", "sample_239_1710000.png", "sample_240_1710000.png", 
+                "sample_241_1710000.png", "sample_242_1710000.png", "sample_243_1710000.png", "sample_244_1710000.png", "sample_245_1710000.png", 
+                "sample_246_1710000.png", "sample_247_1710000.png", "sample_248_1710000.png", "sample_249_1710000.png", "sample_250_1710000.png", 
+                "sample_251_1710000.png", "sample_252_1710000.png", "sample_253_1710000.png", "sample_254_1710000.png", "sample_255_1710000.png", 
+                "sample_256_1710000.png", "sample_257_1710000.png", "sample_258_1710000.png", "sample_259_1710000.png", "sample_260_1710000.png", 
+                "sample_261_1710000.png", "sample_262_1710000.png", "sample_263_1710000.png", "sample_264_1710000.png", "sample_265_1710000.png", 
+                "sample_266_1710000.png", "sample_267_1710000.png", "sample_268_1710000.png", "sample_269_1710000.png", "sample_270_1710000.png", 
+                "sample_271_1710000.png", "sample_272_1710000.png", "sample_273_1710000.png", "sample_274_1710000.png", "sample_275_1710000.png", 
+                "sample_276_1710000.png", "sample_277_1710000.png", "sample_278_1710000.png", "sample_279_1710000.png", "sample_280_1710000.png", 
+                "sample_281_1710000.png", "sample_282_1710000.png", "sample_283_1710000.png", "sample_284_1710000.png", "sample_285_1710000.png", 
+                "sample_286_1710000.png", "sample_287_1710000.png", "sample_288_1710000.png", "sample_289_1710000.png", "sample_290_1710000.png", 
+                "sample_291_1710000.png", "sample_292_1710000.png", "sample_293_1710000.png", "sample_294_1710000.png", "sample_295_1710000.png", 
+                "sample_296_1710000.png", "sample_297_1710000.png", "sample_298_1710000.png", "sample_299_1710000.png", "sample_300_1710000.png", 
+                "sample_301_1710000.png", "sample_302_1710000.png", "sample_303_1710000.png", "sample_304_1710000.png", "sample_305_1710000.png", 
+                "sample_306_1710000.png", "sample_307_1710000.png", "sample_308_1710000.png", "sample_309_1710000.png", "sample_310_1710000.png", 
+                "sample_311_1710000.png", "sample_312_1710000.png", "sample_313_1710000.png", "sample_314_1710000.png", "sample_315_1710000.png", 
+                "sample_316_1710000.png", "sample_317_1710000.png", "sample_318_1710000.png", "sample_319_1710000.png", "sample_320_1710000.png", 
+                "sample_321_1710000.png", "sample_322_1710000.png", "sample_323_1710000.png", "sample_324_1710000.png", "sample_325_1710000.png", 
+                "sample_326_1710000.png", "sample_327_1710000.png", "sample_328_1710000.png", "sample_329_1710000.png", "sample_330_1710000.png", 
+                "sample_331_1710000.png", "sample_332_1710000.png", "sample_333_1710000.png", "sample_334_1710000.png", "sample_335_1710000.png", 
+                "sample_336_1710000.png", "sample_337_1710000.png", "sample_338_1710000.png", "sample_339_1710000.png", "sample_340_1710000.png", 
+                "sample_341_1710000.png", "sample_342_1710000.png", "sample_343_1710000.png", "sample_344_1710000.png", "sample_345_1710000.png", 
+                "sample_346_1710000.png", "sample_347_1710000.png", "sample_348_1710000.png", "sample_349_1710000.png", "sample_350_1710000.png", 
+                "sample_351_1710000.png", "sample_352_1710000.png", "sample_353_1710000.png", "sample_354_1710000.png", "sample_355_1710000.png", 
+                "sample_356_1710000.png", "sample_357_1710000.png", "sample_358_1710000.png", "sample_359_1710000.png", "sample_360_1710000.png", 
+                "sample_361_1710000.png", "sample_362_1710000.png", "sample_363_1710000.png", "sample_364_1710000.png", "sample_365_1710000.png", 
+                "sample_366_1710000.png", "sample_367_1710000.png", "sample_368_1710000.png", "sample_369_1710000.png", "sample_370_1710000.png", 
+                "sample_371_1710000.png", "sample_372_1710000.png", "sample_373_1710000.png", "sample_374_1710000.png", "sample_375_1710000.png", 
+                "sample_376_1710000.png", "sample_377_1710000.png", "sample_378_1710000.png", "sample_379_1710000.png", "sample_380_1710000.png", 
+                "sample_381_1710000.png", "sample_382_1710000.png", "sample_383_1710000.png", "sample_384_1710000.png", "sample_385_1710000.png", 
+                "sample_386_1710000.png", "sample_387_1710000.png", "sample_388_1710000.png", "sample_389_1710000.png", "sample_390_1710000.png", 
+                "sample_391_1710000.png", "sample_392_1710000.png", "sample_393_1710000.png", "sample_394_1710000.png", "sample_395_1710000.png", 
+                "sample_396_1710000.png", "sample_397_1710000.png", "sample_398_1710000.png", "sample_399_1710000.png", "sample_400_1710000.png", 
+                "sample_401_1710000.png", "sample_402_1710000.png", "sample_403_1710000.png", "sample_404_1710000.png", "sample_405_1710000.png", 
+                "sample_406_1710000.png", "sample_407_1710000.png", "sample_408_1710000.png", "sample_409_1710000.png", "sample_410_1710000.png", 
+                "sample_411_1710000.png", "sample_412_1710000.png", "sample_413_1710000.png", "sample_414_1710000.png", "sample_415_1710000.png", 
+                "sample_416_1710000.png", "sample_417_1710000.png", "sample_418_1710000.png", "sample_419_1710000.png", "sample_420_1710000.png", 
+                "sample_421_1710000.png", "sample_422_1710000.png", "sample_423_1710000.png", "sample_424_1710000.png", "sample_425_1710000.png", 
+                "sample_426_1710000.png", "sample_427_1710000.png", "sample_428_1710000.png", "sample_429_1710000.png", "sample_430_1710000.png", 
+                "sample_431_1710000.png", "sample_432_1710000.png", "sample_433_1710000.png", "sample_434_1710000.png", "sample_435_1710000.png", 
+                "sample_436_1710000.png", "sample_437_1710000.png", "sample_438_1710000.png", "sample_439_1710000.png", "sample_440_1710000.png", 
+                "sample_441_1710000.png", "sample_442_1710000.png", "sample_443_1710000.png", "sample_444_1710000.png", "sample_445_1710000.png", 
+                "sample_446_1710000.png", "sample_447_1710000.png", "sample_448_1710000.png", "sample_449_1710000.png", "sample_450_1710000.png", 
+                "sample_451_1710000.png", "sample_452_1710000.png", "sample_453_1710000.png", "sample_454_1710000.png", "sample_455_1710000.png", 
+                "sample_456_1710000.png", "sample_457_1710000.png", "sample_458_1710000.png", "sample_459_1710000.png", "sample_460_1710000.png", 
+                "sample_461_1710000.png", "sample_462_1710000.png", "sample_463_1710000.png", "sample_464_1710000.png", "sample_465_1710000.png", 
+                "sample_466_1710000.png", "sample_467_1710000.png", "sample_468_1710000.png", "sample_469_1710000.png", "sample_470_1710000.png", 
+                "sample_471_1710000.png", "sample_472_1710000.png", "sample_473_1710000.png", "sample_474_1710000.png", "sample_475_1710000.png", 
+                "sample_476_1710000.png", "sample_477_1710000.png", "sample_478_1710000.png", "sample_479_1710000.png", "sample_480_1710000.png", 
+                "sample_481_1710000.png", "sample_482_1710000.png", "sample_483_1710000.png", "sample_484_1710000.png", "sample_485_1710000.png", 
+                "sample_486_1710000.png", "sample_487_1710000.png", "sample_488_1710000.png", "sample_489_1710000.png", "sample_490_1710000.png", 
+                "sample_491_1710000.png", "sample_492_1710000.png", "sample_493_1710000.png", "sample_494_1710000.png", "sample_495_1710000.png", 
+                "sample_496_1710000.png", "sample_497_1710000.png", "sample_498_1710000.png", "sample_499_1710000.png", "sample_500_1710000.png", 
+                "sample_501_1710000.png", "sample_502_1710000.png", "sample_503_1710000.png", "sample_504_1710000.png", "sample_505_1710000.png", 
+                "sample_506_1710000.png", "sample_507_1710000.png", "sample_508_1710000.png", "sample_509_1710000.png", "sample_510_1710000.png", 
+                "sample_511_1710000.png", "sample_512_1710000.png", "sample_513_1710000.png", "sample_514_1710000.png", "sample_515_1710000.png", 
+                "sample_516_1710000.png", "sample_517_1710000.png", "sample_518_1710000.png", "sample_519_1710000.png", "sample_520_1710000.png", 
+                "sample_521_1710000.png", "sample_522_1710000.png", "sample_523_1710000.png", "sample_524_1710000.png", "sample_525_1710000.png", 
+                "sample_526_1710000.png", "sample_527_1710000.png", "sample_528_1710000.png", "sample_529_1710000.png", "sample_530_1710000.png", 
+                "sample_531_1710000.png", "sample_532_1710000.png", "sample_533_1710000.png", "sample_534_1710000.png", "sample_535_1710000.png", 
+                "sample_536_1710000.png", "sample_537_1710000.png", "sample_538_1710000.png", "sample_539_1710000.png", "sample_540_1710000.png", 
+                "sample_541_1710000.png", "sample_542_1710000.png", "sample_543_1710000.png", "sample_544_1710000.png", "sample_545_1710000.png", 
+                "sample_546_1710000.png", "sample_547_1710000.png", "sample_548_1710000.png", "sample_549_1710000.png", "sample_550_1710000.png", 
+                "sample_551_1710000.png", "sample_552_1710000.png", "sample_553_1710000.png", "sample_554_1710000.png", "sample_555_1710000.png", 
+                "sample_556_1710000.png", "sample_557_1710000.png", "sample_558_1710000.png", "sample_559_1710000.png", "sample_560_1710000.png", 
+                "sample_561_1710000.png", "sample_562_1710000.png", "sample_563_1710000.png", "sample_564_1710000.png", "sample_565_1710000.png", 
+                "sample_566_1710000.png", "sample_567_1710000.png", "sample_568_1710000.png", "sample_569_1710000.png", "sample_570_1710000.png", 
+                "sample_571_1710000.png", "sample_572_1710000.png", "sample_573_1710000.png", "sample_574_1710000.png", "sample_575_1710000.png", 
+                "sample_576_1710000.png", "sample_577_1710000.png", "sample_578_1710000.png", "sample_579_1710000.png", "sample_580_1710000.png", 
+                "sample_581_1710000.png", "sample_582_1710000.png", "sample_583_1710000.png", "sample_584_1710000.png", "sample_585_1710000.png", 
+                "sample_586_1710000.png", "sample_587_1710000.png", "sample_588_1710000.png", "sample_589_1710000.png", "sample_590_1710000.png", 
+                "sample_591_1710000.png", "sample_592_1710000.png", "sample_593_1710000.png", "sample_594_1710000.png", "sample_595_1710000.png", 
+                "sample_596_1710000.png", "sample_597_1710000.png", "sample_598_1710000.png", "sample_599_1710000.png", "sample_600_1710000.png", 
+                "sample_601_1710000.png", "sample_602_1710000.png", "sample_603_1710000.png", "sample_604_1710000.png", "sample_605_1710000.png", 
+                "sample_606_1710000.png", "sample_607_1710000.png", "sample_608_1710000.png", "sample_609_1710000.png", "sample_610_1710000.png", 
+                "sample_611_1710000.png", "sample_612_1710000.png", "sample_613_1710000.png", "sample_614_1710000.png", "sample_615_1710000.png", 
+                "sample_616_1710000.png", "sample_617_1710000.png", "sample_618_1710000.png", "sample_619_1710000.png", "sample_620_1710000.png", 
+                "sample_621_1710000.png", "sample_622_1710000.png", "sample_623_1710000.png", "sample_624_1710000.png", "sample_625_1710000.png", 
+                "sample_626_1710000.png", "sample_627_1710000.png", "sample_628_1710000.png", "sample_629_1710000.png", "sample_630_1710000.png", 
+                "sample_631_1710000.png", "sample_632_1710000.png", "sample_633_1710000.png", "sample_634_1710000.png", "sample_635_1710000.png", 
+                "sample_636_1710000.png", "sample_637_1710000.png", "sample_638_1710000.png", "sample_639_1710000.png", "sample_640_1710000.png", 
+                "sample_641_1710000.png", "sample_642_1710000.png", "sample_643_1710000.png", "sample_644_1710000.png", "sample_645_1710000.png", 
+                "sample_646_1710000.png", "sample_647_1710000.png", "sample_648_1710000.png", "sample_649_1710000.png", "sample_650_1710000.png", 
+                "sample_651_1710000.png", "sample_652_1710000.png", "sample_653_1710000.png", "sample_654_1710000.png", "sample_655_1710000.png", 
+                "sample_656_1710000.png", "sample_657_1710000.png", "sample_658_1710000.png", "sample_659_1710000.png", "sample_660_1710000.png", 
+                "sample_661_1710000.png", "sample_662_1710000.png", "sample_663_1710000.png", "sample_664_1710000.png", "sample_665_1710000.png", 
+                "sample_666_1710000.png", "sample_667_1710000.png", "sample_668_1710000.png", "sample_669_1710000.png", "sample_670_1710000.png", 
+                "sample_671_1710000.png", "sample_672_1710000.png", "sample_673_1710000.png", "sample_674_1710000.png", "sample_675_1710000.png", 
+                "sample_676_1710000.png", "sample_677_1710000.png", "sample_678_1710000.png", "sample_679_1710000.png", "sample_680_1710000.png", 
+                "sample_681_1710000.png", "sample_682_1710000.png", "sample_683_1710000.png", "sample_684_1710000.png", "sample_685_1710000.png", 
+                "sample_686_1710000.png", "sample_687_1710000.png", "sample_688_1710000.png", "sample_689_1710000.png", "sample_690_1710000.png", 
+                "sample_691_1710000.png", "sample_692_1710000.png", "sample_693_1710000.png", "sample_694_1710000.png", "sample_695_1710000.png", 
+                "sample_696_1710000.png", "sample_697_1710000.png", "sample_698_1710000.png", "sample_699_1710000.png", "sample_700_1710000.png", 
+                "sample_701_1710000.png", "sample_702_1710000.png", "sample_703_1710000.png", "sample_704_1710000.png", "sample_705_1710000.png", 
+                "sample_706_1710000.png", "sample_707_1710000.png", "sample_708_1710000.png", "sample_709_1710000.png", "sample_710_1710000.png", 
+                "sample_711_1710000.png", "sample_712_1710000.png", "sample_713_1710000.png", "sample_714_1710000.png", "sample_715_1710000.png", 
+                "sample_716_1710000.png", "sample_717_1710000.png", "sample_718_1710000.png", "sample_719_1710000.png", "sample_720_1710000.png", 
+                "sample_721_1710000.png", "sample_722_1710000.png", "sample_723_1710000.png", "sample_724_1710000.png", "sample_725_1710000.png", 
+                "sample_726_1710000.png", "sample_727_1710000.png", "sample_728_1710000.png", "sample_729_1710000.png", "sample_730_1710000.png", 
+                "sample_731_1710000.png", "sample_732_1710000.png", "sample_733_1710000.png", "sample_734_1710000.png", "sample_735_1710000.png", 
+                "sample_736_1710000.png", "sample_737_1710000.png", "sample_738_1710000.png", "sample_739_1710000.png", "sample_740_1710000.png", 
+                "sample_741_1710000.png", "sample_742_1710000.png", "sample_743_1710000.png", "sample_744_1710000.png", "sample_745_1710000.png", 
+                "sample_746_1710000.png", "sample_747_1710000.png", "sample_748_1710000.png", "sample_749_1710000.png", "sample_750_1710000.png", 
+                "sample_751_1710000.png", "sample_752_1710000.png", "sample_753_1710000.png", "sample_754_1710000.png", "sample_755_1710000.png", 
+                "sample_756_1710000.png", "sample_757_1710000.png", "sample_758_1710000.png", "sample_759_1710000.png", "sample_760_1710000.png", 
+                "sample_761_1710000.png", "sample_762_1710000.png", "sample_763_1710000.png", "sample_764_1710000.png", "sample_765_1710000.png", 
+                "sample_766_1710000.png", "sample_767_1710000.png", "sample_768_1710000.png", "sample_769_1710000.png", "sample_770_1710000.png", 
+                "sample_771_1710000.png", "sample_772_1710000.png", "sample_773_1710000.png", "sample_774_1710000.png", "sample_775_1710000.png", 
+                "sample_776_1710000.png", "sample_777_1710000.png", "sample_778_1710000.png", "sample_779_1710000.png", "sample_780_1710000.png", 
+                "sample_781_1710000.png", "sample_782_1710000.png", "sample_783_1710000.png", "sample_784_1710000.png", "sample_785_1710000.png", 
+                "sample_786_1710000.png", "sample_787_1710000.png", "sample_788_1710000.png", "sample_789_1710000.png", "sample_790_1710000.png", 
+                "sample_791_1710000.png", "sample_792_1710000.png", "sample_793_1710000.png", "sample_794_1710000.png", "sample_795_1710000.png", 
+                "sample_796_1710000.png", "sample_797_1710000.png", "sample_798_1710000.png", "sample_799_1710000.png", "sample_800_1710000.png", 
+                "sample_801_1710000.png", "sample_802_1710000.png", "sample_803_1710000.png", "sample_804_1710000.png", "sample_805_1710000.png", 
+                "sample_806_1710000.png", "sample_807_1710000.png", "sample_808_1710000.png", "sample_809_1710000.png", "sample_810_1710000.png", 
+                "sample_811_1710000.png", "sample_812_1710000.png", "sample_813_1710000.png", "sample_814_1710000.png", "sample_815_1710000.png", 
+                "sample_816_1710000.png", "sample_817_1710000.png", "sample_818_1710000.png", "sample_819_1710000.png", "sample_820_1710000.png", 
+                "sample_821_1710000.png", "sample_822_1710000.png", "sample_823_1710000.png", "sample_824_1710000.png", "sample_825_1710000.png", 
+                "sample_826_1710000.png", "sample_827_1710000.png", "sample_828_1710000.png", "sample_829_1710000.png", "sample_830_1710000.png", 
+                "sample_831_1710000.png", "sample_832_1710000.png", "sample_833_1710000.png", "sample_834_1710000.png", "sample_835_1710000.png", 
+                "sample_836_1710000.png", "sample_837_1710000.png", "sample_838_1710000.png", "sample_839_1710000.png", "sample_840_1710000.png", 
+                "sample_841_1710000.png", "sample_842_1710000.png", "sample_843_1710000.png", "sample_844_1710000.png", "sample_845_1710000.png", 
+                "sample_846_1710000.png", "sample_847_1710000.png", "sample_848_1710000.png", "sample_849_1710000.png", "sample_850_1710000.png", 
+                "sample_851_1710000.png", "sample_852_1710000.png", "sample_853_1710000.png", "sample_854_1710000.png", "sample_855_1710000.png", 
+                "sample_856_1710000.png", "sample_857_1710000.png", "sample_858_1710000.png", "sample_859_1710000.png", "sample_860_1710000.png", 
+                "sample_861_1710000.png", "sample_862_1710000.png", "sample_863_1710000.png", "sample_864_1710000.png", "sample_865_1710000.png", 
+                "sample_866_1710000.png", "sample_867_1710000.png", "sample_868_1710000.png", "sample_869_1710000.png", "sample_870_1710000.png", 
+                "sample_871_1710000.png", "sample_872_1710000.png", "sample_873_1710000.png", "sample_874_1710000.png", "sample_875_1710000.png", 
+                "sample_876_1710000.png", "sample_877_1710000.png", "sample_878_1710000.png", "sample_879_1710000.png", "sample_880_1710000.png", 
+                "sample_881_1710000.png", "sample_882_1710000.png", "sample_883_1710000.png", "sample_884_1710000.png", "sample_885_1710000.png", 
+                "sample_886_1710000.png", "sample_887_1710000.png", "sample_888_1710000.png", "sample_889_1710000.png", "sample_890_1710000.png", 
+                "sample_891_1710000.png", "sample_892_1710000.png", "sample_893_1710000.png", "sample_894_1710000.png", "sample_895_1710000.png", 
+                "sample_896_1710000.png", "sample_897_1710000.png", "sample_898_1710000.png", "sample_899_1710000.png", 
+            ];
+
+            const names = [
+                "Sample 1: Artemale", "Sample 2: Gligare", "Sample 3: Haspladbund", "Sample 4: Litlel", "Sample 5: Creticane", "Sample 6: Zyrasp", 
+                "Sample 7: Craosly", "Sample 8: Paldia", "Sample 9: Samewa", "Sample 10: Apvamas", "Sample 11: Seellisk", 
+                "Sample 12: Luana", "Sample 13: Mashloek", "Sample 14: Dramel", "Sample 15: Velina", "Sample 16: Tydrurp", 
+                "Sample 17: Edelektrybusk", "Sample 18: Dudchyna", "Sample 19: Flirdsite", "Sample 20: Togaliun", "Sample 21: Gachipish", 
+                "Sample 22: Lagne", "Sample 23: Mesmea", "Sample 24: Crokuph", "Sample 25: Silickolt", "Sample 26: Megioras", 
+                "Sample 27: Pattrew", "Sample 28: Blimbra", "Sample 29: Bslozy", "Sample 30: Steetler", "Sample 31: Botok", 
+                "Sample 32: Bug", "Sample 33: Grymeed", "Sample 34: Machohyedon", "Sample 35: Puffy", "Sample 36: Tinkalumin", 
+                "Sample 37: Waiki", "Sample 38: Desigona", "Sample 39: Krantle", "Sample 40: Darlula", "Sample 41: Buperus", 
+                "Sample 42: Xeldle", "Sample 43: Dowlom", "Sample 44: Puwlitol", "Sample 45: Skugabut", "Sample 46: Ravika", 
+                "Sample 47: Kendise", "Sample 48: Conflon", "Sample 49: Denarutile", "Sample 50: Zelithous", "Sample 51: Lilon", 
+                "Sample 52: Rubbusf", "Sample 53: Velistame", "Sample 54: Bellipede", "Sample 55: Wial", "Sample 56: Giiatill", 
+                "Sample 57: Parroboom", "Sample 58: Belloom", "Sample 59: Sandoo", "Sample 60: Crapinty", "Sample 61: Dribbuna", 
+                "Sample 62: Ilt", "Sample 63: Swurlapus", "Sample 64: Snruns", "Sample 65: Pludeduc", "Sample 66: Boltsreed", 
+                "Sample 67: Toxcartoos", "Sample 68: Chinjair", "Sample 69: Solist", "Sample 70: Hpyps", "Sample 71: Polypet", 
+                "Sample 72: Boldea", "Sample 73: Inon", "Sample 74: Fernsdear", "Sample 75: Cregishoass", "Sample 76: Mabsaus", 
+                "Sample 77: Hinpuhlflet", "Sample 78: Dedistact", "Sample 79: Amoleds", "Sample 80: Torsnata", "Sample 81: waileon", 
+                "Sample 82: Strabillar", "Sample 83: Yaptar", "Sample 84: Gothimon thakegom", "Sample 85: Duffabka", "Sample 86: Lawcoll", 
+                "Sample 87: Regaplus", "Sample 88: Torkozone", "Sample 89: Irin jurudon", "Sample 90: Loiatnu", "Sample 91: Firnedite", 
+                "Sample 92: Polcalder", "Sample 93: Mudsweon", "Sample 94: Darughdos", "Sample 95: Boneory", "Sample 96: Woolok", 
+                "Sample 97: Nellos", "Sample 98: Glameon", "Sample 99: Pirnea", "Sample 100: Pudscee", "Sample 101: Wolditor", 
+                "Sample 102: Strinma", "Sample 103: Lokidout", "Sample 104: Beb", "Sample 105: Munsltol", "Sample 106: Feorabit", 
+                "Sample 107: Trhecake", "Sample 108: Pirabyflor", "Sample 109: Dramdle", "Sample 110: Stiygot", "Sample 111: Archops", 
+                "Sample 112: Dradorina", "Sample 113: Bolekoop", "Sample 114: Emblect", "Sample 115: Trudont", "Sample 116: Galsnam", 
+                "Sample 117: Eganguck", "Sample 118: Trappus", "Sample 119: Tronbur", "Sample 120: Reirkable", "Sample 121: Steilleek", 
+                "Sample 122: Stouna", "Sample 123: Groobat", "Sample 124: Regogon", "Sample 125: Polistak", "Sample 126: Toxsdreanl", 
+                "Sample 127: Rastrim", "Sample 128: Porichops", "Sample 129: Lunny", "Sample 130: Iron  etoodon", "Sample 131: Sewgoose", 
+                "Sample 132: Bectino", "Sample 133: G taclude", "Sample 134: Miganthar", "Sample 135: Cereking", "Sample 136: Valavang", 
+                "Sample 137: Cospirior", "Sample 138: Nyteerdre", "Sample 139: Beliura", "Sample 140: Velipeden", "Sample 141: Riloric", 
+                "Sample 142: Marmorm", "Sample 143: Mevigus", "Sample 144: Egal", "Sample 145: Crealosta", "Sample 146: Voleaipeu", 
+                "Sample 147: Tyrowite", "Sample 148: Sillim", "Sample 149: Boibord", "Sample 150: Swellion", "Sample 151: Hedgetitre", 
+                "Sample 152: Gangilu", "Sample 153: Feriol", "Sample 154: Pathalus", "Sample 155: Blesper", "Sample 156: Vipcee", 
+                "Sample 157: Podruel", "Sample 158: Ascee", "Sample 159: Mucly", "Sample 160: Groochel", "Sample 161: Lokidurs", 
+                "Sample 162: Flomon", "Sample 163: Kinu", "Sample 164: Weaxida", "Sample 165: Rokkide", "Sample 166: Duswlebor", 
+                "Sample 167: Beldeavite", "Sample 168: Ipode", "Sample 169: Malctor", "Sample 170: Innpy", "Sample 171: Kunfer foougu", 
+                "Sample 172: Smoduge", "Sample 173: Ochycle", "Sample 174: Minelix", "Sample 175: Shoodra", "Sample 176: Geleadge", 
+                "Sample 177: Volliush", "Sample 178: Mriarcion", "Sample 179: Ombiern", "Sample 180: Vibwion", "Sample 181: Ballox", 
+                "Sample 182: Smewth", "Sample 183: Korket", "Sample 184: Boubbat", "Sample 185: Iron bolupude", "Sample 186: Hokrotr", 
+                "Sample 187: Topu fiafos", "Sample 188: Duria", "Sample 189: Egiele", "Sample 190: Amemaant", "Sample 191: Ormagostact", 
+                "Sample 192: Crowzope", "Sample 193: Sholliped", "Sample 194: Angurgs", "Sample 195: Dharput", "Sample 196: Drabbleabra", 
+                "Sample 197: Lolopt", "Sample 198: Koidougs", "Sample 199: Regihangutle", "Sample 200: Simiu", "Sample 201: Silubloo", 
+                "Sample 202: Glagnigany", "Sample 203: Wingran", "Sample 204: Surrit", "Sample 205: Viromusmata", "Sample 206: Xernea", 
+                "Sample 207: Zundsear", "Sample 208: Wampaler", "Sample 209: Dradimnae", "Sample 210: Chom", "Sample 211: Coctrier", 
+                "Sample 212: Rusaurr", "Sample 213: Drokudimis", "Sample 214: Elgisda", "Sample 215: Crugonaple", "Sample 216: Delgax", 
+                "Sample 217: Frrothe", "Sample 218: Pyneth", "Sample 219: Alekk", "Sample 220: Marboar", "Sample 221: Engeosse", 
+                "Sample 222: Samppiris", "Sample 223: Crabimon", "Sample 224: Esclevef", "Sample 225: Creyce", "Sample 226: Sunks", 
+                "Sample 227: Ekous", "Sample 228: Qually", "Sample 229: Cawnilut", "Sample 230: Stuffir", "Sample 231: Iktelpha", 
+                "Sample 232: Egnath", "Sample 233: Learo", "Sample 234: Uppler", "Sample 235: Dra y", "Sample 236: Swirlish", 
+                "Sample 237: Surchy", "Sample 238: Robat", "Sample 239: Ciusfurs", "Sample 240: Skoopuff", "Sample 241: Silith", 
+                "Sample 242: Goltat", "Sample 243: Viavde", "Sample 244: Laix", "Sample 245: Bugiram", "Sample 246: Serumee", 
+                "Sample 247: Villistin", "Sample 248: Soscret", "Sample 249: Kole", "Sample 250: Cuslyloada", "Sample 251: Mroonite", 
+                "Sample 252: Noscam", "Sample 253: Sawkitune", "Sample 254: Macheru", "Sample 255: Gyoke", "Sample 256: Boatey", 
+                "Sample 257: Ampheon", "Sample 258: Dracott", "Sample 259: Mamobwool", "Sample 260: Chables", "Sample 261: Mefselis", 
+                "Sample 262: Cormacale", "Sample 263: Adrigolao", "Sample 264: Oskioda", "Sample 265: Samblaon", "Sample 266: Changlon", 
+                "Sample 267: Hitleex", "Sample 268: Dusteen", "Sample 269: Odor", "Sample 270: Olitten", "Sample 271: Palow", 
+                "Sample 272: Nicune", "Sample 273: Nozer", "Sample 274: Notruck", "Sample 275: Swagook", "Sample 276: Luncou", 
+                "Sample 277: Marmald", "Sample 278: Makar", "Sample 279: Erdegen", "Sample 280: Sork", "Sample 281: Phantcham", 
+                "Sample 282: Graumon", "Sample 283: Polycho", "Sample 284: Bobat", "Sample 285: Nator", "Sample 286: Seanpuff", 
+                "Sample 287: Snighoo", "Sample 288: Tydoch", "Sample 289: Shelgy", "Sample 290: Mamister", "Sample 291: Boldachuce", 
+                "Sample 292: Penux", "Sample 293: Tormachwormot", "Sample 294: Syagroat", "Sample 295: Wawtack", "Sample 296: Bleunf", 
+                "Sample 297: Rigletty", "Sample 298: Phiapur", "Sample 299: Hunklos", "Sample 300: Salcany", "Sample 301: Trequeled", 
+                "Sample 302: Bolable", "Sample 303: Cremiradra", "Sample 304: Ealexgurdramon", "Sample 305: Kidglier", "Sample 306: Mawwaktoll", 
+                "Sample 307: Eostact", "Sample 308: Tapubu", "Sample 309: Dactun", "Sample 310: Lintleon", "Sample 311: Grabu", 
+                "Sample 312: Tortabita", "Sample 313: Mewwar", "Sample 314: Eledezaky", "Sample 315: Marchatas", "Sample 316: Seruedar", 
+                "Sample 317: Hinpurk", "Sample 318: Dramplan", "Sample 319: Shumior", "Sample 320: Rodohdeen", "Sample 321: Pewyde", 
+                "Sample 322: Stoquake", "Sample 323: Volpin", "Sample 324: Rokinguer", "Sample 325: Carboor", "Sample 326: Bollaxe", 
+                "Sample 327: Blaslee", "Sample 328: Ceawyt", "Sample 329: Regingeragoon", "Sample 330: Boltleemon", "Sample 331: Limpla", 
+                "Sample 332: Chinfey", "Sample 333: Reedlectrowl", "Sample 334: Grugonneth", "Sample 335: Cracragon", "Sample 336: Doudie", 
+                "Sample 337: Dracroa", "Sample 338: Draf leon", "Sample 339: Maditam", "Sample 340: Marmaradeoc", "Sample 341: Chigngy", 
+                "Sample 342: Maniva", "Sample 343: Gnimimash", "Sample 344: Torioan", "Sample 345: Crhna cod", "Sample 346: Byreeivish", 
+                "Sample 347: Shenzum", "Sample 348: Ankilitor", "Sample 349: Pslut", "Sample 350: Delriharon", "Sample 351: Fingash", 
+                "Sample 352: Yinzun", "Sample 353: Loomuia", "Sample 354: Caeelparit", "Sample 355: Bascrow", "Sample 356: Forabula", 
+                "Sample 357: Doucep", "Sample 358: Hooldoon", "Sample 359: Wouttier", "Sample 360: Tatow", "Sample 361: Dismee", 
+                "Sample 362: Mustoon", "Sample 363: Pawdoth", "Sample 364: Maectoo", "Sample 365: Naclec", "Sample 366: Blabliun", 
+                "Sample 367: Ichien", "Sample 368: Bunsen", "Sample 369: Beldscrilu", "Sample 370: Weilloa", "Sample 371: Shirtfu", 
+                "Sample 372: Swegrasw", "Sample 373: Flacels", "Sample 374: Stidousk", "Sample 375: Broy", "Sample 376: Poldoon", 
+                "Sample 377: Duipomb", "Sample 378: Garbuus", "Sample 379: Paluslha", "Sample 380: Polomighon", "Sample 381: Blacelen", 
+                "Sample 382: Rairade", "Sample 383: Flaraion", "Sample 384: Venabi", "Sample 385: Lubsile", "Sample 386: Slunkra", 
+                "Sample 387: Madwool", "Sample 388: Bodsise", "Sample 389: Drenian", "Sample 390: Fingloo", "Sample 391: Grea", 
+                "Sample 392: Toutchamon", "Sample 393: Wooboo", "Sample 394: Dobufus", "Sample 395: Kidlett", "Sample 396: Iron valumalaun", 
+                "Sample 397: Xron", "Sample 398: Maomom", "Sample 399: Miniiper", "Sample 400: Graymota", "Sample 401: Honpper", 
+                "Sample 402: Wunk", "Sample 403: Boduder", "Sample 404: Edgerio", "Sample 405: Sping", "Sample 406: Crowustee", 
+                "Sample 407: Koskier", "Sample 408: Drodamon purremon", "Sample 409: Eleft", "Sample 410: Drcozzel", "Sample 411: Fodscrot", 
+                "Sample 412: Crasty", "Sample 413: Frogantine", "Sample 414: Toillaon", "Sample 415: Panghamon tanegon", "Sample 416: Gide guus", 
+                "Sample 417: Grumppel", "Sample 418: Yamale", "Sample 419: Spangham", "Sample 420: Sicho", "Sample 421: Robati", 
+                "Sample 422: Nowlonk", "Sample 423: Searatt", "Sample 424: Wonkant", "Sample 425: Mamuchne", "Sample 426: Warduas", 
+                "Sample 427: Audoris", "Sample 428: Tiddod", "Sample 429: Turoto", "Sample 430: Zerupedrr", "Sample 431: Machip", 
+                "Sample 432: Rombit", "Sample 433: Reosharer", "Sample 434: Ogreeleak", "Sample 435: Sanskion", "Sample 436: Mome", 
+                "Sample 437: Starowalge", "Sample 438: Pepaidin", "Sample 439: Bunflant", "Sample 440: Flakre", "Sample 441: Innoy", 
+                "Sample 442: Wughla", "Sample 443: Niyx", "Sample 444: Touksramon", "Sample 445: Digling", "Sample 446: Sursluk", 
+                "Sample 447: Evantorow", "Sample 448: Zowe", "Sample 449: Soring", "Sample 450: Saladion", "Sample 451: Ractoy", 
+                "Sample 452: Vickritu", "Sample 453: Lacewon", "Sample 454: Beenotic", "Sample 455: Senkista", "Sample 456: Flomigagamon", 
+                "Sample 457: Ctapu nete", "Sample 458: Darkrou", "Sample 459: Bacty", "Sample 460: Olaking", "Sample 461: Shello", 
+                "Sample 462: Bewnetru", "Sample 463: Blashu", "Sample 464: Buffallie", "Sample 465: Koginump", "Sample 466: Wreel", 
+                "Sample 467: Piptone", "Sample 468: Vilone", "Sample 469: Florued", "Sample 470: Dedilit", "Sample 471: Croopus", 
+                "Sample 472: Carscok", "Sample 473: Felloris", "Sample 474: Iron deat loopes", "Sample 475: Euddei", "Sample 476: Spidoldon", 
+                "Sample 477: Recalat", "Sample 478: Wallosfe", "Sample 479: Nanguck", "Sample 480: Plundien", "Sample 481: Krobuble", 
+                "Sample 482: Hott", "Sample 483: Groomo", "Sample 484: Dragper", "Sample 485: Carbugrat", "Sample 486: Dorritum", 
+                "Sample 487: Lumoth", "Sample 488: Bolting", "Sample 489: Rockroy", "Sample 490: Boiund", "Sample 491: Moltedor", 
+                "Sample 492: Palrook", "Sample 493: Capbumb", "Sample 494: Eurodattila", "Sample 495: Rotunde", "Sample 496: Melame", 
+                "Sample 497: Skromper", "Sample 498: Sewmile", "Sample 499: Marmae", "Sample 500: Wyrat", "Sample 501: Tor miwat", 
+                "Sample 502: Lewatt", "Sample 503: Sim", "Sample 504: Deavoo", "Sample 505: Arcanior", "Sample 506: Idunt", 
+                "Sample 507: Rutterem", "Sample 508: Milpy", "Sample 509: Leadabiti", "Sample 510: Impon", "Sample 511: Wascamot", 
+                "Sample 512: Rilluw", "Sample 513: Eowot", "Sample 514: Dorudoe", "Sample 515: Prime", "Sample 516: Tyreauk", 
+                "Sample 517: Bignyurl", "Sample 518: Kacurpia", "Sample 519: Mogmshact", "Sample 520: Dimel", "Sample 521: Leaxe", 
+                "Sample 522: Maraon", "Sample 523: Bliazen", "Sample 524: Rommucn", "Sample 525: Wailla", "Sample 526: Fulaco", 
+                "Sample 527: Dragodge", "Sample 528: Chirsma", "Sample 529: Echanemon", "Sample 530: Teruntant", "Sample 531: Nornite", 
+                "Sample 532: Holosir", "Sample 533: Pawdut", "Sample 534: Tipdycrigat", "Sample 535: Sede", "Sample 536: Widois", 
+                "Sample 537: Stroedaker", "Sample 538: Vurlisadise", "Sample 539: Wagmuve", "Sample 540: Duacho", "Sample 541: Chiboude", 
+                "Sample 542: Dearemibolocr", "Sample 543: Owletcho", "Sample 544: Siron snathit", "Sample 545: Polching", "Sample 546: Venoar", 
+                "Sample 547: Antoor", "Sample 548: Sabute", "Sample 549: Glitic", "Sample 550: Bellaskan", "Sample 551: Mulphor", 
+                "Sample 552: Posdrips", "Sample 553: Tigglicery", "Sample 554: Smepiwars", "Sample 555: Lelphac", "Sample 556: Doocky", 
+                "Sample 557: Gletchog", "Sample 558: Leown", "Sample 559: Perille", "Sample 560: Boutey", "Sample 561: Grumpla", 
+                "Sample 562: Lawu", "Sample 563: Vanon", "Sample 564: Sturdae", "Sample 565: Polipra", "Sample 566: Negorah", 
+                "Sample 567: Cognat", "Sample 568: Zundick", "Sample 569: Purskel", "Sample 570: Pating burill", "Sample 571: Froxegant", 
+                "Sample 572: Henving", "Sample 573: Drod bund", "Sample 574: Grompliben", "Sample 575: Matere", "Sample 576: Heroar", 
+                "Sample 577: Stazil", "Sample 578: Banpy", "Sample 579: Rokide", "Sample 580: Krozalo", "Sample 581: Pollosnal", 
+                "Sample 582: Respina", "Sample 583: Koel", "Sample 584: Spit", "Sample 585: Pawsneo", "Sample 586: Cimchatan", 
+                "Sample 587: Cramnant", "Sample 588: Noogma", "Sample 589: Miezark", "Sample 590: Elirgde", "Sample 591: Klinkarin", 
+                "Sample 592: Wiraring", "Sample 593: Hopper", "Sample 594: Dombett", "Sample 595: Raperat", "Sample 596: Woaring", 
+                "Sample 597: Krompelde", "Sample 598: Poptrois", "Sample 599: Velicorish", "Sample 600: Sanv", "Sample 601: Cluscle", 
+                "Sample 602: Skidpe", "Sample 603: Framitr", "Sample 604: Ascupa", "Sample 605: Prickord", "Sample 606: Chinoc", 
+                "Sample 607: Metto", "Sample 608: Burrew", "Sample 609: Chevimplucam", "Sample 610: Sewsa", "Sample 611: Drovile", 
+                "Sample 612: Niilorr", "Sample 613: Doru deedby", "Sample 614: Flastle", "Sample 615: Kigliwel", "Sample 616: Toutunk", 
+                "Sample 617: Iro thidgzk", "Sample 618: Tentorie", "Sample 619: Pappler", "Sample 620: Groodus", "Sample 621: Mazzel", 
+                "Sample 622: Altegroude", "Sample 623: Shellor", "Sample 624: Magmel", "Sample 625: Wunper", "Sample 626: Beaigelap", 
+                "Sample 627: Skractode", "Sample 628: Dompale", "Sample 629: Klaink", "Sample 630: Wirgmor", "Sample 631: Dactle", 
+                "Sample 632: Craicnoh", "Sample 633: Seawid", "Sample 634: Grondsile", "Sample 635: Ramhirinry", "Sample 636: Statant", 
+                "Sample 637: Watturle", "Sample 638: Taltrier", "Sample 639: Woobu", "Sample 640: Kellund", "Sample 641: Phapine s", 
+                "Sample 642: Mrilitle", "Sample 643: Ke firier", "Sample 644: Graboom", "Sample 645: Fhiredon", "Sample 646: Arbatont", 
+                "Sample 647: Drupple", "Sample 648: Cuntolipe", "Sample 649: Poudup", "Sample 650: Dachino", "Sample 651: Cunschoe", 
+                "Sample 652: Eshacott", "Sample 653: Saedle", "Sample 654: Juruwhi", "Sample 655: Kickitu", "Sample 656: Nimisbul", 
+                "Sample 657: Griglitle", "Sample 658: Duskellish", "Sample 659: Velpin", "Sample 660: Mlyiosn", "Sample 661: Dumpwoos", 
+                "Sample 662: Figlotade", "Sample 663: Neau", "Sample 664: Pidoas", "Sample 665: Doumarant", "Sample 666: Roggha", 
+                "Sample 667: Sigonk", "Sample 668: Digglyta", "Sample 669: Melavar", "Sample 670: Boldic", "Sample 671: Droicne", 
+                "Sample 672: Inkaurne", "Sample 673: Snaeor", "Sample 674: Eledbol", "Sample 675: Wekyva", "Sample 676: Floustine", 
+                "Sample 677: Grbitle", "Sample 678: Hoambols", "Sample 679: Rhymor", "Sample 680: Stiluran", "Sample 681: Spearp", 
+                "Sample 682: Cletita", "Sample 683: Frosbuspat", "Sample 684: Miceisr", "Sample 685: Boiabut", "Sample 686: Pheisngul", 
+                "Sample 687: Frosule", "Sample 688: Gulploo", "Sample 689: Weeeiskis", "Sample 690: Staingaurf", "Sample 691: Romewoo", 
+                "Sample 692: Toxiclaggus", "Sample 693: Brosha", "Sample 694: Rasly", "Sample 695: Kimorish", "Sample 696: Pulteo", 
+                "Sample 697: Nitop", "Sample 698: Nickeavole", "Sample 699: Dakski", "Sample 700: Craboast", "Sample 701: Mukarie", 
+                "Sample 702: Narudon", "Sample 703: Lododae", "Sample 704: Cothanious", "Sample 705: Electier", "Sample 706: Flusmoe", 
+                "Sample 707: Drample", "Sample 708: Gruppleo", "Sample 709: Polt", "Sample 710: Ducantloa", "Sample 711: Groivier", 
+                "Sample 712: Arcteareg", "Sample 713: Masplees", "Sample 714: Tarroat", "Sample 715: Dealish", "Sample 716: Eledydera", 
+                "Sample 717: Reblaon", "Sample 718: Dazxle", "Sample 719: Argowloot", "Sample 720: Magiger", "Sample 721: Manchrus", 
+                "Sample 722: Tinkang", "Sample 723: Baltriek", "Sample 724: Soledlett", "Sample 725: Lantuik", "Sample 726: Bombusf", 
+                "Sample 727: Holincosia", "Sample 728: Nimeedir", "Sample 729: Cuceseol", "Sample 730: Edible", "Sample 731: Tyrtham", 
+                "Sample 732: Ning", "Sample 733: Bambim", "Sample 734: Snave", "Sample 735: Lundabita", "Sample 736: Mowtle", 
+                "Sample 737: Glew", "Sample 738: Boletto", "Sample 739: Velaboom", "Sample 740: Parisk", "Sample 741: Valolty", 
+                "Sample 742: labumi", "Sample 743: Jidomon", "Sample 744: Scaneo", "Sample 745: Pingurv", "Sample 746: Kalush", 
+                "Sample 747: Zeypen", "Sample 748: Elermarp", "Sample 749: Polbaw", "Sample 750: Koopta", "Sample 751: Phoopeist", 
+                "Sample 752: Coiging bonke", "Sample 753: Traisu", "Sample 754: Swegpdle", "Sample 755: Nosege", "Sample 756: Drizzlne", 
+                "Sample 757: Imerant", "Sample 758: Wombon", "Sample 759: Pelinzla", "Sample 760: Bellion", "Sample 761: Kandewbru", 
+                "Sample 762: Elettork", "Sample 763: Shimer", "Sample 764: Sweedle", "Sample 765: Osnier", "Sample 766: Ging farbow", 
+                "Sample 767: Wardun", "Sample 768: Iron thero", "Sample 769: Floradon", "Sample 770: Edompard", "Sample 771: Irod vevith", 
+                "Sample 772: Tototau", "Sample 773: Ediatrop", "Sample 774: Egbith", "Sample 775: Glimbre", "Sample 776: Ealpuct", 
+                "Sample 777: Gapbulle", "Sample 778: Dompol", "Sample 779: Grectul", "Sample 780: Blugple", "Sample 781: Anoine", 
+                "Sample 782: Horun", "Sample 783: Zorial", "Sample 784: Nichu", "Sample 785: Medodat", "Sample 786: Paltaen", 
+                "Sample 787: Ailulueg", "Sample 788: Maxuraie", "Sample 789: Pinsay", "Sample 790: Cartow", "Sample 791: Lublet", 
+                "Sample 792: Sandiga", "Sample 793: Arbros", "Sample 794: Mewsceno", "Sample 795: Medunio", "Sample 796: Dracomon", 
+                "Sample 797: Clewettre", "Sample 798: Silumae", "Sample 799: Ezicole", "Sample 800: Plupple", "Sample 801: Dielspus", 
+                "Sample 802: Crogaria", "Sample 803: Drikkutle", "Sample 804: Menilload", "Sample 805: Comimer", "Sample 806: Gorsaret", 
+                "Sample 807: Firillova", "Sample 808: Verdoobut", "Sample 809: Ursharosk", "Sample 810: Mweccky", "Sample 811: Saekant", 
+                "Sample 812: Winlload", "Sample 813: Argaure", "Sample 814: Impeld", "Sample 815: Munswy", "Sample 816: Balticmox", 
+                "Sample 817: Somper", "Sample 818: Rovikillipsh", "Sample 819: Tuddouck", "Sample 820: Marano", "Sample 821: Ironw", 
+                "Sample 822: Laklie", "Sample 823: Doher", "Sample 824: Lattor", "Sample 825: Stangumm", "Sample 826: Dorulus", 
+                "Sample 827: Gialam", "Sample 828: Dsectlormos", "Sample 829: Balipur flet", "Sample 830: Drearial", "Sample 831: Ferraudon", 
+                "Sample 832: Shevyem", "Sample 833: Sandoous", "Sample 834: Klette", "Sample 835: Pludbitu", "Sample 836: Bealoke", 
+                "Sample 837: Popplas", "Sample 838: Medzwolt", "Sample 839: Groowote", "Sample 840: Dugtle", "Sample 841: Staydol", 
+                "Sample 842: Zodeye", "Sample 843: Luzard", "Sample 844: Toumiapk", "Sample 845: Klowsist", "Sample 846: Slrickit", 
+                "Sample 847: Cirshow", "Sample 848: Gouderrh", "Sample 849: Andiigler", "Sample 850: Dractoio", "Sample 851: Deeroatt", 
+                "Sample 852: Kolluck", "Sample 853: Loppie", "Sample 854: Crouk", "Sample 855: Canneovia", "Sample 856: Avjiglith", 
+                "Sample 857: Minow", "Sample 858: Baxbul", "Sample 859: Floy", "Sample 860: Ocuhtremner", "Sample 861: Cype", 
+                "Sample 862: Lodrwsnt", "Sample 863: Florulu", "Sample 864: Cragrood", "Sample 865: Steedeen", "Sample 866: Birafith", 
+                "Sample 867: Aeomosbal", "Sample 868: Shiquel", "Sample 869: Nillupt", "Sample 870: Plupplet", "Sample 871: Trovigre", 
+                "Sample 872: Golbawata", "Sample 873: Brabiass", "Sample 874: Ortordish", "Sample 875: Edscric", "Sample 876: Bacultel", 
+                "Sample 877: Tendierp", "Sample 878: Torvizar", "Sample 879: Pawling", "Sample 880: Murmea", "Sample 881: Skamdemos", 
+                "Sample 882: Slorpuc", "Sample 883: Greaxle", "Sample 884: Rokorita", "Sample 885: Happla", "Sample 886: Beckedle", 
+                "Sample 887: Snelphy", "Sample 888: Tandetone", "Sample 889: Tybmo", "Sample 890: Skavyre", "Sample 891: Hyppow", 
+                "Sample 892: Doumpleo", "Sample 893: Elakutle", "Sample 894: Chitmen", "Sample 895: Kabgo", "Sample 896: Erhipy", 
+                "Sample 897: Sunfeymoon", "Sample 898: Chierhish", "Sample 899: Aromabul", "Sample 900: Agemo geareon", 
+            ];
+            
+            // Loop through the images array and create image elements with names
+            images.forEach((image, index) => {
+                const imageElement = document.createElement('img');
+                imageElement.src = `img/diffusion_samples/${image}`;
+                imageElement.alt = `Pokémon Sprite ${index + 1}`;
+                
+                const nameElement = document.createElement('div');
+                nameElement.classList.add('image-name');
+                nameElement.textContent = names[index]; // Set corresponding name
+                
+                const colDiv = document.createElement('div');
+                colDiv.classList.add('col-12', 'col-md-3'); // 4 images per row on medium and larger screens
+                colDiv.appendChild(imageElement);
+                colDiv.appendChild(nameElement); // Append name under image
+                
+                galleryContainer.appendChild(colDiv);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
