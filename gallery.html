@@ -37,8 +37,14 @@
 
         .image-name {
             text-align: center;
-            margin-bottom: 20px;
             font-size: 14px;
+        }
+        .image-type {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #555; 
+            font-style: italic;
         }
         .back-home-btn {
             position: absolute;
@@ -468,6 +474,189 @@
                 "Sample 897: Sunfeymoon", "Sample 898: Chierhish", "Sample 899: Aromabul", "Sample 900: Agemo geareon", 
             ];
             
+            const types = [
+                "psychic, flying", "bug, poison", "steel, fighting", "ghost, flying", "fire, ground", "water, flying", 
+                "fairy, flying", "water, fairy", "rock, flying", "ground, poison", "fire, fighting", 
+                "ground, grass", "ground, water", "ghost, flying", "ghost, steel", "ground, normal", 
+                "dark, flying", "rock, normal", "water, ghost", "rock, ground", "fire, flying", 
+                "water, flying", "steel, flying", "steel, fairy", "ghost, normal", "fighting, flying", 
+                "water, normal", "fire, fighting", "normal, flying", "normal, psychic", "water, normal", 
+                "electric, water", "bug, normal", "ground, normal", "normal, water", "fire, fighting", 
+                "ghost, flying", "dragon, flying", "ground, rock", "normal, poison", "bug, water", 
+                "water, normal", "water, ghost", "water, normal", "bug, flying", "ghost, fighting", 
+                "ice, flying", "ground, normal", "rock, flying", "ghost, flying", "fairy, normal", 
+                "grass, normal", "poison, ice", "rock, electric", "psychic, steel", "fighting, rock", 
+                "steel, normal", "fairy, dragon", "fire, dragon", "dark, ghost", "psychic, normal", 
+                "dragon, poison", "ghost, ground", "ground, fighting", "normal, ghost", "fighting, steel", 
+                "psychic, flying", "psychic, flying", "flying, bug", "dragon, flying", "fighting, normal", 
+                "fighting, fire", "ground, flying", "ground, flying", "water, steel", "rock, water", 
+                "electric, flying", "fire, flying", "dark, fairy", "dark, ground", "steel, flying", 
+                "water, dark", "electric, flying", "fighting, normal", "normal, flying", "fairy, normal", 
+                "steel, flying", "normal, poison", "normal, fairy", "rock, ground", "normal, flying", 
+                "normal, flying", "ghost, electric", "dragon, normal", "normal, fire", "ground, flying", 
+                "psychic, fighting", "dragon, ground", "fairy, psychic", "ghost, rock", "dark, ground", 
+                "rock, water", "steel, ice", "steel, water", "normal, steel", "grass, flying", 
+                "water, poison", "normal, flying", "rock, normal", "steel, ground", "normal, flying", 
+                "normal, fighting", "steel, flying", "ghost, rock", "water, poison", "dark, poison", 
+                "electric, dark", "steel, grass", "steel, flying", "water, poison", "poison, ground", 
+                "rock, flying", "ground, fighting", "psychic, poison", "fairy, normal", "electric, flying", 
+                "poison, flying", "fighting, fairy", "fairy, ghost", "poison, flying", "fighting, ground", 
+                "rock, flying", "fire, flying", "poison, water", "water, flying", "ground, flying", 
+                "dark, flying", "water, flying", "bug, flying", "electric, fairy", "normal, flying", 
+                "rock, flying", "grass, rock", "normal, poison", "steel, flying", "steel, fighting", 
+                "psychic, electric", "electric, rock", "grass, psychic", "fire, flying", "dark, water", 
+                "dragon, fighting", "rock, flying", "rock, normal", "electric, normal", "normal, flying", 
+                "normal, fairy", "poison, ghost", "rock, normal", "ghost, steel", "grass, normal", 
+                "normal, flying", "steel, flying", "water, steel", "ground, flying", "rock, ghost", 
+                "flying, steel", "steel, rock", "grass, normal", "ground, ghost", "normal, fairy", 
+                "fire, ground", "psychic, flying", "poison, water", "normal, ground", "poison, flying", 
+                "rock, normal", "dark, poison", "steel, normal", "steel, electric", "grass, normal", 
+                "grass, normal", "ghost, flying", "dragon, ghost", "normal, steel", "normal, psychic", 
+                "psychic, flying", "normal, psychic", "steel, ground", "dragon, water", "steel, normal", 
+                "normal, ground", "steel, grass", "steel, water", "bug, flying", "steel, ground", 
+                "dark, normal", "normal, electric", "normal, fighting", "dark, poison", "grass, normal", 
+                "normal, ground", "water, poison", "water, flying", "steel, flying", "poison, normal", 
+                "ghost, steel", "psychic, normal", "steel, water", "ice, fighting", "fire, ghost", 
+                "ice, dragon", "fire, normal", "water, normal", "flying, water", "ground, rock", 
+                "ground, flying", "steel, fighting", "normal, flying", "water, flying", "normal, flying", 
+                "ground, rock", "rock, water", "water, normal", "water, ice", "fairy, normal", 
+                "fairy, normal", "bug, flying", "ice, flying", "normal, flying", "water, normal", 
+                "fairy, normal", "fighting, normal", "steel, normal", "fighting, normal", "fighting, steel", 
+                "normal, psychic", "fairy, fighting", "rock, poison", "ghost, steel", "normal, flying", 
+                "normal, poison", "normal, poison", "grass, psychic", "ghost, poison", "fire, ghost", 
+                "ghost, rock", "steel, ghost", "steel, rock", "rock, normal", "ice, psychic", 
+                "steel, rock", "rock, ground", "ground, normal", "water, ground", "steel, normal", 
+                "ground, flying", "rock, ghost", "normal, flying", "normal, poison", "steel, flying", 
+                "ground, flying", "normal, rock", "steel, rock", "rock, normal", "water, flying", 
+                "ground, rock", "rock, water", "steel, flying", "psychic, normal", "water, psychic", 
+                "water, electric", "dragon, water", "water, flying", "water, flying", "bug, fighting", 
+                "normal, flying", "rock, flying", "fighting, flying", "rock, fighting", "rock, ground", 
+                "ground, water", "steel, flying", "dark, rock", "ghost, normal", "grass, flying", 
+                "fighting, fairy", "normal, flying", "normal, flying", "normal, ghost", "steel, fighting", 
+                "dark, ground", "bug, normal", "fire, normal", "bug, flying", "water, rock", 
+                "steel, fighting", "rock, normal", "normal, ground", "steel, ground", "rock, normal", 
+                "fairy, water", "ground, flying", "normal, fire", "ground, normal", "rock, flying", 
+                "steel, flying", "water, poison", "ice, flying", "steel, normal", "psychic, poison", 
+                "psychic, flying", "grass, ground", "fire, flying", "ghost, ice", "ghost, normal", 
+                "water, fighting", "normal, rock", "normal, rock", "fairy, normal", "water, fairy", 
+                "ice, normal", "psychic, electric", "normal, flying", "grass, normal", "dragon, flying", 
+                "ground, water", "steel, normal", "rock, normal", "rock, normal", "bug, flying", 
+                "electric, normal", "steel, flying", "water, flying", "grass, ground", "water, flying", 
+                "water, poison", "water, normal", "normal, psychic", "ghost, flying", "normal, poison", 
+                "normal, flying", "normal, psychic", "steel, flying", "psychic, steel", "grass, flying", 
+                "electric, steel", "steel, flying", "ground, flying", "steel, flying", "dark, steel", 
+                "normal, fire", "rock, ice", "bug, flying", "bug, flying", "dark, flying", 
+                "ice, ghost", "rock, flying", "water, poison", "water, grass", "rock, flying", 
+                "normal, grass", "normal, ground", "electric, normal", "electric, psychic", "psychic, fairy", 
+                "water, poison", "water, rock", "steel, fire", "dragon, ground", "fire, flying", 
+                "rock, flying", "ice, fairy", "fighting, flying", "grass, ground", "ghost, flying", 
+                "poison, ground", "fairy, psychic", "water, flying", "normal, flying", "normal, poison", 
+                "grass, flying", "normal, flying", "rock, normal", "water, ground", "ghost, normal", 
+                "psychic, flying", "normal, psychic", "fighting, flying", "normal, water", "grass, fire", 
+                "electric, psychic", "dark, ground", "dragon, flying", "normal, poison", "fire, normal", 
+                "water, normal", "steel, fighting", "water, flying", "dragon, water", "grass, bug", 
+                "rock, ground", "fire, grass", "steel, grass", "ground, flying", "rock, normal", 
+                "ground, normal", "normal, ghost", "normal, ground", "ground, rock", "water, psychic", 
+                "rock, normal", "electric, flying", "water, poison", "flying, ground", "ice, rock", 
+                "rock, ground", "ghost, flying", "ghost, ground", "normal, poison", "rock, ghost", 
+                "rock, normal", "steel, flying", "water, poison", "fairy, flying", "electric, normal", 
+                "fire, ice", "water, flying", "fire, flying", "normal, psychic", "rock, flying", 
+                "steel, flying", "rock, normal", "fighting, fairy", "dark, normal", "ground, steel", 
+                "rock, steel", "electric, flying", "water, flying", "water, flying", "ground, flying", 
+                "ground, fighting", "normal, flying", "water, psychic", "fire, normal", "psychic, water", 
+                "fighting, grass", "normal, poison", "steel, rock", "bug, flying", "psychic, poison", 
+                "poison, ghost", "poison, water", "normal, poison", "psychic, grass", "steel, flying", 
+                "dark, bug", "water, ground", "grass, psychic", "poison, water", "rock, ground", 
+                "grass, normal", "ghost, flying", "steel, water", "psychic, normal", "grass, flying", 
+                "ghost, poison", "fire, normal", "fairy, normal", "water, flying", "bug, water", 
+                "fire, fighting", "ghost, electric", "rock, steel", "grass, fighting", "normal, fighting", 
+                "rock, normal", "rock, normal", "fire, flying", "psychic, flying", "ground, flying", 
+                "ground, flying", "normal, psychic", "fairy, normal", "fighting, flying", "water, flying", 
+                "normal, poison", "water, fairy", "dragon, flying", "ground, poison", "ice, flying", 
+                "fighting, flying", "fire, dragon", "fairy, normal", "ghost, steel", "steel, flying", 
+                "fighting, normal", "normal, dragon", "psychic, electric", "psychic, flying", "water, psychic", 
+                "steel, fighting", "electric, dark", "normal, ground", "ghost, poison", "fairy, water", 
+                "fairy, normal", "normal, fighting", "ground, flying", "ground, flying", "fighting, flying", 
+                "steel, poison", "normal, steel", "normal, flying", "flying, poison", "rock, water", 
+                "bug, flying", "dark, electric", "fire, fighting", "electric, poison", "ghost, flying", 
+                "fire, grass", "normal, water", "ground, flying", "grass, dragon", "bug, normal", 
+                "fighting, grass", "ghost, flying", "steel, flying", "grass, normal", "steel, ground", 
+                "bug, psychic", "poison, fairy", "water, psychic", "electric, steel", "ground, flying", 
+                "water, normal", "fairy, flying", "fighting, fairy", "normal, flying", "electric, dark", 
+                "ground, flying", "ghost, water", "normal, electric", "electric, flying", "dragon, normal", 
+                "water, electric", "steel, psychic", "dark, fighting", "fire, ground", "psychic, normal", 
+                "normal, fighting", "rock, ground", "fire, water", "normal, flying", "water, dragon", 
+                "psychic, ground", "normal, water", "ice, flying", "water, ghost", "ghost, flying", 
+                "bug, poison", "poison, water", "normal, ground", "psychic, flying", "rock, psychic", 
+                "ground, normal", "fire, water", "psychic, water", "dark, fairy", "fairy, normal", 
+                "normal, fighting", "fire, flying", "ground, fighting", "normal, water", "fire, flying", 
+                "rock, normal", "dragon, water", "steel, flying", "normal, fighting", "normal, fire", 
+                "ice, flying", "ground, poison", "steel, flying", "bug, water", "fairy, psychic", 
+                "steel, fighting", "grass, flying", "normal, poison", "ground, water", "psychic, normal", 
+                "flying, dragon", "rock, normal", "ghost, fairy", "grass, flying", "ground, flying", 
+                "steel, electric", "grass, flying", "bug, poison", "normal, ice", "ice, flying", 
+                "normal, poison", "steel, flying", "steel, flying", "psychic, rock", "rock, normal", 
+                "water, psychic", "dragon, steel", "fire, grass", "steel, psychic", "bug, flying", 
+                "fire, normal", "fighting, normal", "ghost, grass", "bug, normal", "steel, flying", 
+                "normal, electric", "water, flying", "normal, ground", "psychic, flying", "water, normal", 
+                "water, fairy", "normal, bug", "grass, fighting", "bug, flying", "psychic, flying", 
+                "psychic, normal", "rock, flying", "normal, ground", "rock, flying", "steel, water", 
+                "normal, steel", "steel, ghost", "fighting, fairy", "ground, psychic", "dragon, flying", 
+                "normal, fairy", "bug, water", "normal, flying", "steel, rock", "grass, flying", 
+                "bug, flying", "normal, flying", "normal, flying", "psychic, water", "ground, normal", 
+                "ghost, water", "fighting, normal", "dark, flying", "rock, ground", "ground, fire", 
+                "fairy, normal", "psychic, flying", "fairy, normal", "ground, rock", "electric, flying", 
+                "ghost, flying", "flying, fighting", "electric, ghost", "water, flying", "normal, flying", 
+                "poison, water", "fighting, normal", "electric, flying", "grass, flying", "fighting, dark", 
+                "ground, normal", "ground, water", "electric, bug", "electric, psychic", "normal, fighting", 
+                "steel, flying", "fire, rock", "ice, poison", "ghost, grass", "dark, dragon", 
+                "steel, water", "bug, water", "bug, flying", "grass, fairy", "rock, flying", 
+                "water, grass", "normal, water", "rock, psychic", "ice, flying", "fire, flying", 
+                "ice, flying", "rock, ground", "fighting, water", "grass, poison", "ground, normal", 
+                "fire, ground", "steel, flying", "water, poison", "steel, flying", "water, normal", 
+                "rock, water", "steel, flying", "dark, normal", "normal, flying", "steel, water", 
+                "steel, poison", "normal, ground", "fire, flying", "normal, dark", "ground, rock", 
+                "water, ground", "fighting, ground", "flying, dragon", "ghost, flying", "ghost, normal", 
+                "water, poison", "normal, dark", "ground, steel", "steel, normal", "electric, flying", 
+                "normal, electric", "steel, flying", "normal, flying", "ghost, bug", "ghost, psychic", 
+                "ground, normal", "fighting, normal", "normal, ground", "rock, grass", "dark, dragon", 
+                "ghost, ground", "psychic, flying", "normal, psychic", "electric, flying", "poison, normal", 
+                "water, psychic", "ground, normal", "grass, normal", "ghost, flying", "poison, ground", 
+                "fire, ground", "steel, flying", "psychic, poison", "normal, steel", "psychic, normal", 
+                "fighting, normal", "normal, fire", "water, flying", "normal, flying", "electric, ground", 
+                "normal, fighting", "psychic, poison", "psychic, ground", "ground, flying", "bug, normal", 
+                "normal, dragon", "fire, normal", "flying, steel", "bug, fighting", "ghost, normal", 
+                "dark, poison", "water, psychic", "steel, rock", "fire, water", "normal, rock", 
+                "normal, water", "ground, flying", "steel, normal", "fire, normal", "rock, flying", 
+                "grass, flying", "dragon, water", "grass, ground", "psychic, rock", "water, dark", 
+                "water, ghost", "normal, water", "grass, rock", "grass, bug", "fire, electric", 
+                "fighting, normal", "bug, normal", "normal, flying", "rock, flying", "rock, ghost", 
+                "ghost, fighting", "ice, water", "rock, ground", "ghost, grass", "electric, psychic", 
+                "grass, normal", "fighting, water", "fairy, normal", "dragon, normal", "water, dragon", 
+                "rock, flying", "ghost, flying", "steel, flying", "water, ground", "water, poison", 
+                "steel, ground", "steel, flying", "normal, fighting", "dark, flying", "normal, fairy", 
+                "bug, flying", "water, flying", "ice, normal", "fairy, water", "normal, ghost", 
+                "fighting, rock", "grass, poison", "rock, normal", "grass, flying", "grass, flying", 
+                "fairy, rock", "ground, flying", "water, fighting", "steel, flying", "steel, psychic", 
+                "electric, flying", "normal, flying", "steel, ground", "water, flying", "electric, flying", 
+                "ghost, flying", "fire, flying", "steel, flying", "rock, normal", "steel, psychic", 
+                "ghost, bug", "flying, dark", "ground, fire", "steel, rock", "ground, rock", 
+                "ground, rock", "rock, normal", "rock, flying", "ground, flying", "normal, flying", 
+                "steel, flying", "psychic, flying", "bug, ground", "ground, water", "normal, steel", 
+                "electric, normal", "normal, flying", "bug, fire", "water, normal", "water, fighting", 
+                "normal, fire", "steel, fighting", "water, rock", "rock, ground", "dragon, water", 
+                "fighting, water", "normal, ghost", "normal, flying", "normal, flying", "psychic, ground", 
+                "fire, electric", "normal, ground", "ground, steel", "rock, normal", "rock, water", 
+                "grass, flying", "fairy, normal", "poison, flying", "ghost, flying", "ghost, poison", 
+                "electric, flying", "fire, flying", "electric, ghost", "ghost, flying", "steel, flying", 
+                "psychic, water", "psychic, normal", "normal, ghost", "normal, flying", "ice, normal", 
+                "water, flying", "rock, flying", "ground, poison", "psychic, water", "water, flying", 
+                "water, poison", "ghost, flying", "rock, normal", "steel, flying", "normal, poison", 
+                "bug, flying", "ground, flying", "steel, ghost", "normal, flying", "rock, normal", 
+                "water, poison", "ice, fighting", "electric, normal", "psychic, fairy", "normal, flying", 
+                "psychic, normal", "fairy, water", "grass, poison", "dark, water"
+            ];
+
             // Loop through the images array and create image elements with names
             images.forEach((image, index) => {
                 const imageElement = document.createElement('img');
@@ -477,11 +666,16 @@
                 const nameElement = document.createElement('div');
                 nameElement.classList.add('image-name');
                 nameElement.textContent = names[index]; // Set corresponding name
-                
+
+                const typeElement = document.createElement('div');
+                typeElement.classList.add('image-type'); // Add a class for styling types if needed
+                typeElement.textContent = types[index]; // Set corresponding type
+                    
                 const colDiv = document.createElement('div');
                 colDiv.classList.add('col-12', 'col-md-3'); // 4 images per row on medium and larger screens
                 colDiv.appendChild(imageElement);
                 colDiv.appendChild(nameElement); // Append name under image
+                colDiv.appendChild(typeElement); // Append type under name
                 
                 galleryContainer.appendChild(colDiv);
             });
